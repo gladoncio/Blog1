@@ -47,3 +47,4 @@ def updatePost(request,pk):
 
     context = {"form":form, "update":update}
     return render(request,'posts/form_post.html', context)
+#test
