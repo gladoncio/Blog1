@@ -1,0 +1,33 @@
+services:
+  blogqwaaa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "python Blogqwaaa/manage.py makemigrations && python Blogqwaaa/manage.py migrate Posts && python Blogqwaaa/manage.py migrate && python Blogqwaaa/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/Blogqwaaa
+      - /dev/:/dev/
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    depends_on:
+      - db  # Dependemos del servicio mariadb
+    privileged: true
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: victor
+      POSTGRES_DB: blog_victor
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+

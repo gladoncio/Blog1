@@ -1,0 +1,15 @@
+__pycache__
+*.sqlite3
+*.sqlite3-journal
+venv/
+media/
+update.sh
+update_info.txt
+registro.log
+Iniciar_caja.sh
+registro_servicio.log
+products.log
+data/
+datos.json
+app/core/migrations/      
+!app/core/migrations/__init__.py   # No ignorar '__init__.py'
