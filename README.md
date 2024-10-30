@@ -1,56 +1,41 @@
+# Proyecto Docker
 
-<div align="center">
-  <h1><code>Caja registradora</code></h1>
-  <p>
-    <strong>Admistración de ventas Pos</strong>
-  </p>
-  <p style="margin-bottom: 0.5ex;">
-    <img
-        src="https://img.shields.io/github/downloads/gladoncio/caja_registradora/total"
-    />
-    <img
-        src="https://img.shields.io/github/last-commit/gladoncio/caja_registradora"
-    />
-    <img
-        src="https://img.shields.io/github/issues/gladoncio/caja_registradora"
-    />
-    <img
-        src="https://img.shields.io/github/issues-closed/gladoncio/caja_registradora"
-    />
-    <img
-        src="https://img.shields.io/github/repo-size/gladoncio/caja_registradora"
-    />
-    <img
-        src="https://img.shields.io/github/workflow/status/gladoncio/caja_registradora/Compile%20and%20release"
-    />
-  </p>
-</div>
+Este proyecto está configurado para ejecutarse en un entorno Docker utilizando `docker-compose`. A continuación, se detallan los pasos necesarios para construir y ejecutar el proyecto.
 
-![Sistema](sistema.png)
+## Requisitos
 
-### La Caja Registradora es un proyecto Django diseñado para gestionar ventas y conectar impresoras POS. Este proyecto facilita la administración de transacciones comerciales de manera eficiente y conecta hardware de punto de venta para una experiencia más integrada.
+- Docker
+- Docker Compose
 
-## Características Principales
+## Instrucciones de Uso
 
-- **Administración de Ventas:** Registra y gestiona las ventas de productos y servicios.
-- **Conexión a Impresoras POS:** Integración con impresoras de punto de venta para imprimir recibos.
-- **Interfaz Intuitiva:** Interfaz de usuario fácil de usar para una experiencia de caja registradora intuitiva.
+### 1. Construcción de los contenedores
 
-## Requisitos del Sistema
-- Sistema operativo basado en Debian (otros sistemas operativos serán compatibles en futuras versiones).
-- Conexión a internet para la descarga de dependencias.
+Para construir los contenedores necesarios, ejecuta el siguiente comando:
 
-## Instrucciones de Instalación
-
-### 1. Descargar el Proyecto
-```bash
-git clone https://github.com/gladoncio/caja_registradora
 ```
-### 2. Ir al Directorio del Proyecto
-```bash
-cd caja_registradora
+docker-compose build
 ```
-### 3. Ejecutar el Script de Instalación
-```bash
-sudo ./install.sh
+Este comando lee las configuraciones del archivo docker-compose.yml y construye las imágenes necesarias para los servicios definidos.
+
+### 2. Ejecución de los contenedores
+Una vez construidas las imágenes, puedes iniciar los contenedores con el siguiente comando:
+
 ```
+docker-compose up
+```
+Este comando levantará todos los servicios en segundo plano, permitiéndote interactuar con la aplicación en el entorno configurado.
+
+### 3. Parar los contenedores
+Para detener los contenedores, puedes utilizar Ctrl + C si los estás ejecutando en primer plano o el siguiente comando si se ejecutan en segundo plano:
+
+
+```
+docker-compose down
+```
+
+Esto detendrá y eliminará los contenedores que se crearon.
+
+### Notas
+Asegúrate de tener el archivo docker-compose.yml correctamente configurado antes de ejecutar los comandos.
+Puedes modificar las configuraciones en docker-compose.yml según las necesidades de tu proyecto.
